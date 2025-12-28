@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgfuw5h7tfxgp"]
+
+[ext_resource type="Texture2D" uid="uid://bbbwlf7afm6me" path="res://assets/objects/sky.png" id="1_3naov"]
+
+[sub_resource type="Gradient" id="Gradient_3naov"]
+colors = PackedColorArray(0.5411765, 0, 1, 1, 1, 0.48235294, 0.49019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tx3ps"]
+gradient = SubResource("Gradient_3naov")
+fill_from = Vector2(1, 1)
+
+[node name="Sky" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_3naov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 105.5)
+scale = Vector2(4.21875, 2.171875)
+texture = SubResource("GradientTexture2D_tx3ps")

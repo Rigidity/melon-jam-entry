@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq2hqr5qeebxf"]
+
+[ext_resource type="Script" uid="uid://deuhnub42ifj1" path="res://objects/gondola.gd" id="1_32pcp"]
+[ext_resource type="Texture2D" uid="uid://bsr4wsk8sq164" path="res://assets/objects/gondola.png" id="1_gqn5v"]
+
+[node name="Gondola" type="AnimatableBody2D" groups=["gondola"]]
+script = ExtResource("1_32pcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gqn5v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-19, -8)
+polygon = PackedVector2Array(-23, -5, -17, -2, 2, 2, 43, 2, 64, -6, 63, 5, 40, 13, -8, 13, -24, 3, -31, -5)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(58, 0)

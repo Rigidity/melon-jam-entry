@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://rrn0gfnop3e3"]
+
+[ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_vn7o3"]
+[ext_resource type="PackedScene" uid="uid://cfxlh3ldb6mlb" path="res://levels/level_2.tscn" id="2_gwceb"]
+[ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="3_n46q3"]
+[ext_resource type="PackedScene" uid="uid://c87lvjs6wiiiu" path="res://objects/platform.tscn" id="4_btoec"]
+[ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="5_gwceb"]
+[ext_resource type="PackedScene" uid="uid://cptw47483kf4w" path="res://objects/paline.tscn" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://dcb6y46m0mklr" path="res://objects/mask.tscn" id="11_5ot28"]
+
+[node name="Level1" type="Node"]
+
+[node name="BaseLevel" parent="." instance=ExtResource("1_vn7o3")]
+
+[node name="Player" parent="BaseLevel" index="0"]
+position = Vector2(-20, 82)
+
+[node name="ExitBuilding" parent="BaseLevel" index="6"]
+next_scene = ExtResource("2_gwceb")
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="StartingPlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(-21, 100)
+
+[node name="Flower" parent="Platforms/StartingPlatform" instance=ExtResource("5_gwceb")]
+position = Vector2(-26, -11)
+
+[node name="Flower2" parent="Platforms/StartingPlatform" instance=ExtResource("5_gwceb")]
+position = Vector2(28, -11)
+
+[node name="RaisedPlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(76, 90)
+
+[node name="LoweredPlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(476, 122)
+
+[node name="Flower" parent="Platforms/LoweredPlatform" instance=ExtResource("5_gwceb")]
+position = Vector2(19, -11)
+
+[node name="SurfacePlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(809, 59)
+
+[node name="HopPlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(932, 59)
+
+[node name="PalineSeries" type="Node" parent="Platforms"]
+
+[node name="Paline" parent="Platforms/PalineSeries" instance=ExtResource("6_btoec")]
+position = Vector2(552, 128)
+
+[node name="Paline2" parent="Platforms/PalineSeries" instance=ExtResource("6_btoec")]
+position = Vector2(592, 112)
+
+[node name="Paline3" parent="Platforms/PalineSeries" instance=ExtResource("6_btoec")]
+position = Vector2(632, 96)
+
+[node name="Paline4" parent="Platforms/PalineSeries" instance=ExtResource("6_btoec")]
+position = Vector2(672, 80)
+
+[node name="Paline5" parent="Platforms/PalineSeries" instance=ExtResource("6_btoec")]
+position = Vector2(712, 64)
+
+[node name="ExitPaline" parent="Platforms" instance=ExtResource("6_btoec")]
+position = Vector2(1022, 105)
+
+[node name="ExitPlatform" parent="Platforms" instance=ExtResource("4_btoec")]
+position = Vector2(1116, 105)
+
+[node name="Flower" parent="Platforms/ExitPlatform" instance=ExtResource("5_gwceb")]
+position = Vector2(-25.746704, -11.11808)
+
+[node name="Gondolas" type="Node" parent="."]
+
+[node name="FirstGondola" type="Node2D" parent="Gondolas"]
+
+[node name="Gondola" parent="Gondolas/FirstGondola" instance=ExtResource("3_n46q3")]
+position = Vector2(329, 113)
+
+[node name="Paline" parent="Gondolas/FirstGondola" instance=ExtResource("6_btoec")]
+position = Vector2(145, 124)
+
+[node name="Paline2" parent="Gondolas/FirstGondola" instance=ExtResource("6_btoec")]
+position = Vector2(400, 124)
+
+[node name="Mask" parent="." instance=ExtResource("11_5ot28")]
+position = Vector2(932, 42)
+mask = 1
+
+[editable path="BaseLevel"]

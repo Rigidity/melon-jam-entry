@@ -1,11 +1,22 @@
 extends Camera2D
 
-@export var limit_tilemap: TileMapLayer
+func _ready() -> void:
+	_create_boundary("left", Vector2(1.0, 0.0), limit_left)
+	_create_boundary("right", Vector2(-1.0, 0.0), -limit_right)
+	_create_boundary("top", Vector2(0.0, 1.0), limit_top)
+	_create_boundary("bottom", Vector2(0.0, -1.0), -limit_bottom)
 
-func _process(_delta: float) -> void:
-	var used_rect := limit_tilemap.get_used_rect()
-	var tile_map_size := limit_tilemap.tile_set.tile_size
-	limit_left = used_rect.position.x * tile_map_size.x
-	limit_top = used_rect.position.y * tile_map_size.y
-	limit_right = (used_rect.position.x + used_rect.size.x) * tile_map_size.x
-	limit_bottom = (used_rect.position.y + used_rect.size.y) * tile_map_size.y
+func _create_boundary(boundary_name: StringName, normal: Vector2, distance: float) -> void:
+	var body := StaticBody2D.new()
+	body.name = boundary_name
+	body.add_to_group("boundary")
+	body.set_collision_layer_value(1, false)
+	
+	var collider := CollisionShape2D.new()
+	var shape := WorldBoundaryShape2D.new()
+	shape.normal = normal
+	shape.distance = distance
+	collider.shape = shape
+	
+	body.add_child(collider)
+	get_tree().get_root().call_deferred("add_child", body)

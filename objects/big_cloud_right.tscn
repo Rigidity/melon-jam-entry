@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6h153fbakk38"]
+
+[ext_resource type="Texture2D" uid="uid://bi76uanmyojtw" path="res://assets/objects/cloud1.png" id="1_yk2ry"]
+
+[node name="BigCloudRight" type="Sprite2D"]
+texture = ExtResource("1_yk2ry")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfxlh3ldb6mlb"]
+
+[ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_mi4ay"]
+[ext_resource type="PackedScene" uid="uid://c87lvjs6wiiiu" path="res://objects/platform.tscn" id="2_pqqg8"]
+
+[node name="Level2" type="Node"]
+
+[node name="BaseLevel" parent="." instance=ExtResource("1_mi4ay")]
+
+[node name="Player" parent="BaseLevel" index="0"]
+position = Vector2(-20, 109)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("2_pqqg8")]
+position = Vector2(-20, 127)
+
+[editable path="BaseLevel"]

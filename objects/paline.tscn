@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cptw47483kf4w"]
+
+[ext_resource type="Texture2D" uid="uid://cf8sld7m1uh00" path="res://assets/objects/paline.png" id="1_daqc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f5m3"]
+size = Vector2(11, 59)
+
+[node name="Paline" type="StaticBody2D" groups=["paline"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_daqc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_7f5m3")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcb6y46m0mklr"]
+
+[ext_resource type="Script" uid="uid://d15ig0olsrduw" path="res://objects/mask.gd" id="1_bvty1"]
+[ext_resource type="Texture2D" uid="uid://5ec44qgc4mi" path="res://assets/objects/mask.png" id="2_ev0xq"]
+[ext_resource type="Texture2D" uid="uid://bwy8iqfe7kemm" path="res://assets/particles/sparkle1.png" id="3_n7wgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kobj4"]
+radius = 13.0
+
+[sub_resource type="Curve" id="Curve_nh2pc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dkr5r"]
+colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Mask" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_bvty1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ev0xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kobj4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+texture = ExtResource("3_n7wgs")
+lifetime = 0.5
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 80.0
+scale_amount_min = 0.25
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_nh2pc")
+color_ramp = SubResource("Gradient_dkr5r")
+anim_offset_max = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
