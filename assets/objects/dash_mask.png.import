@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bykwqmbkvite"
-path="res://.godot/imported/sit.png-ba9aec33e3946eae6a1db3c78df265d8.ctex"
+uid="uid://5ec44qgc4mi"
+path="res://.godot/imported/dash_mask.png-0686f4b36b9aee53aec64dcf5302e968.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/sit.png"
-dest_files=["res://.godot/imported/sit.png-ba9aec33e3946eae6a1db3c78df265d8.ctex"]
+source_file="res://assets/objects/dash_mask.png"
+dest_files=["res://.godot/imported/dash_mask.png-0686f4b36b9aee53aec64dcf5302e968.ctex"]
 
 [params]
 

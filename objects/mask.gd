@@ -15,8 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 	sprite.visible = false
 	particles.emitting = true
 	
-	Global.collected_masks.push_back(Global.Mask.FEATHER)
-	Global.current_mask = Global.Mask.FEATHER
+	Global.collected_masks.push_back(mask)
+	Global.current_mask = mask
 	
 	await particles.finished
 	queue_free()

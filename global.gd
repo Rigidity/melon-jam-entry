@@ -3,7 +3,7 @@ extends Node
 
 enum Mask {
 	NONE = 0,
-	FEATHER = 1,
+	DOUBLE_JUMP = 1,
 	DASH = 2,
 	POISON = 3
 }
@@ -21,17 +21,17 @@ func reset_for_level(level: int) -> void:
 		stamina = 0
 		current_mask = Mask.NONE
 	elif level == 2:
-		collected_masks = [Mask.FEATHER]
+		collected_masks = [Mask.DOUBLE_JUMP]
 		stamina = 0
-		current_mask = Mask.FEATHER
+		current_mask = Mask.DOUBLE_JUMP
 	elif level == 3:
-		collected_masks = [Mask.FEATHER, Mask.DASH]
+		collected_masks = [Mask.DOUBLE_JUMP, Mask.DASH]
 		stamina = 3
-		current_mask = Mask.FEATHER
+		current_mask = Mask.DOUBLE_JUMP
 	elif level == 4:
-		collected_masks = [Mask.FEATHER, Mask.DASH, Mask.POISON]
+		collected_masks = [Mask.DOUBLE_JUMP, Mask.DASH, Mask.POISON]
 		stamina = 8
-		current_mask = Mask.FEATHER
+		current_mask = Mask.DOUBLE_JUMP
 
 func toggle_mask(index: int) -> void:
 	if index >= len(collected_masks) or index == collected_masks.find(current_mask):
@@ -41,6 +41,7 @@ func toggle_mask(index: int) -> void:
 	if stamina <= 0:
 		AudioBus.play_sound(FAILED)
 		DialogueBus.force_dialogue("I'm out of stamina!", 1.0)
+		DialogueBus.request_dialogue("You can press R to restart", 5.0)
 		return
 	
 	stamina -= 1

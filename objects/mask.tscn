@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcb6y46m0mklr"]
 
 [ext_resource type="Script" uid="uid://d15ig0olsrduw" path="res://objects/mask.gd" id="1_bvty1"]
-[ext_resource type="Texture2D" uid="uid://5ec44qgc4mi" path="res://assets/objects/mask.png" id="2_ev0xq"]
+[ext_resource type="Texture2D" uid="uid://5ec44qgc4mi" path="res://assets/objects/dash_mask.png" id="2_ev0xq"]
 [ext_resource type="Texture2D" uid="uid://bwy8iqfe7kemm" path="res://assets/particles/sparkle1.png" id="3_n7wgs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kobj4"]

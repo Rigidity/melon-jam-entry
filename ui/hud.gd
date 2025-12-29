@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	
 	if Global.current_mask == Global.Mask.NONE:
 		mask_name = "None"
-	elif Global.current_mask == Global.Mask.FEATHER:
+	elif Global.current_mask == Global.Mask.DOUBLE_JUMP:
 		mask_name = "Double Jump"
 	elif Global.current_mask == Global.Mask.DASH:
 		mask_name = "Dash"
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	_update_dialogue(delta)
 
 func _on_dialogue_requested(dialogue: String, delay: float) -> void:
-	if dialogue == _current:
+	if dialogue == _current and (_typing or _char_timer < _delay / 2.0):
 		return
 	
 	for item in _queue:

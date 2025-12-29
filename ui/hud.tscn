@@ -47,16 +47,16 @@ offset_right = 768.0
 offset_bottom = 836.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 256
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 180
 theme_override_constants/margin_right = 256
 
 [node name="DialogueText" type="Label" parent="DialogueBox"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("2_276te")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 48
 text = "Placeholder"
 horizontal_alignment = 1
 autowrap_mode = 3

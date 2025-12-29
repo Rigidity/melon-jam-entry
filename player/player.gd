@@ -18,6 +18,7 @@ extends CharacterBody2D
 const JUMP_SOUND = preload("uid://bndwugx0kqlsq")
 const DASH_SOUND = preload("uid://b4bw7hi3mpro4")
 const POISON_DEATH = preload("uid://dmyig6kd427ch")
+const SWITCH_MASK_PARTICLES = preload("uid://7by4pd2n5hhx")
 
 var _jump_coyote_timer := 0.0
 var _jump_buffer_timer := 0.0
@@ -27,25 +28,29 @@ var _jump_cooldown_timer := 0.0
 var _has_dashed := false
 var _facing_direction := 1.0
 var _dash_timer := 0.0
+var _animation_type := "idle"
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("mask_1"):
 		Global.toggle_mask(0)
+		_mask_effect()
 	elif Input.is_action_just_pressed("mask_2"):
 		Global.toggle_mask(1)
+		_mask_effect()
 	elif Input.is_action_just_pressed("mask_3"):
 		Global.toggle_mask(2)
+		_mask_effect()
 	
 	if not is_on_floor():
-		if sprite.animation != "dash" or not sprite.is_playing():
-			sprite.play("jump")
+		if _animation_type != "dash" or not sprite.is_playing():
+			_animation_type = "jump"
 		
 		if _dash_timer <= 0.0:
 			velocity += get_gravity() * delta
 		else:
 			velocity.y = 0.0
-	elif sprite.animation == "jump" or not sprite.is_playing():
-		sprite.play("idle")
+	elif _animation_type == "jump" or not sprite.is_playing():
+		_animation_type = "idle"
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	var acceleration := ground_acceleration if is_on_floor() else air_acceleration
@@ -61,16 +66,16 @@ func _physics_process(delta: float) -> void:
 		SceneTransition.reload_scene()
 	
 	if sit_collider is CollisionObject2D and sit_collider.is_in_group("gondola") and direction == 0.0:
-		sprite.play("sit")
+		_animation_type = "sit"
 		sitting = true
 	
 	if direction != 0.0:
 		_facing_direction = direction
 		
-		if is_on_floor() or sprite.animation == "sit":
-			sprite.play("walk")
+		if is_on_floor() or _animation_type == "sit":
+			_animation_type = "walk"
 	elif is_on_floor() and not sitting:
-		sprite.play("idle")
+		_animation_type = "idle"
 	
 	if _dash_timer > 0.0:
 		_dash_timer = maxf(_dash_timer - delta, 0.0)
@@ -78,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		if _dash_timer > 0.0:
 			acceleration = 0.0
 	
-	if sprite.animation != "dash":
+	if _animation_type != "dash":
 		sprite.flip_h = _facing_direction < 0.0
 	
 	velocity.x = move_toward(velocity.x, direction * speed, delta * acceleration)
@@ -123,7 +128,7 @@ func _physics_process(delta: float) -> void:
 		
 		AudioBus.play_sound(DASH_SOUND)
 		
-		sprite.play("dash")
+		_animation_type = "dash"
 	
 	move_and_slide()
 	
@@ -142,8 +147,10 @@ func _physics_process(delta: float) -> void:
 			if collider is Balloon:
 				collider.activated = true
 				
-				if sprite.animation != "sit":
-					sprite.play("sit")
+				if _animation_type != "sit":
+					_animation_type = "sit"
+	
+	_update_animation()
 
 func _queue_jump() -> void:
 	_jump_queued = true
@@ -154,7 +161,31 @@ func _reset_jump() -> void:
 	_jump_buffer_timer = 0.0
 
 func _can_double_jump() -> bool:
-	return Global.current_mask == Global.Mask.FEATHER
+	return Global.current_mask == Global.Mask.DOUBLE_JUMP
 
 func _can_dash() -> bool:
 	return Global.current_mask == Global.Mask.DASH
+
+func _update_animation() -> void:
+	var mask_name := "none"
+	
+	if Global.current_mask == Global.Mask.NONE:
+		mask_name = "none"
+	elif Global.current_mask == Global.Mask.DOUBLE_JUMP:
+		mask_name = "double_jump"
+	elif Global.current_mask == Global.Mask.DASH:
+		mask_name = "dash"
+	elif Global.current_mask == Global.Mask.POISON:
+		mask_name = "poison"
+	
+	var animation_name := _animation_type + "_" + mask_name
+	
+	if sprite.animation != animation_name:
+		sprite.play(animation_name)
+
+func _mask_effect() -> void:
+	var particles := SWITCH_MASK_PARTICLES.instantiate()
+	add_child(particles)
+	particles.emitting = true
+	await particles.finished
+	particles.queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5g7vo0qwmyk3"
-path="res://.godot/imported/jump.png-5507d946096bbba04a2cd20993f5c66c.ctex"
+uid="uid://dfgbur45a6l0c"
+path="res://.godot/imported/plague_doctor_mask.png-afa09cc19bae7e86ad83caa16d7d15be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/jump.png"
-dest_files=["res://.godot/imported/jump.png-5507d946096bbba04a2cd20993f5c66c.ctex"]
+source_file="res://assets/objects/plague_doctor_mask.png"
+dest_files=["res://.godot/imported/plague_doctor_mask.png-afa09cc19bae7e86ad83caa16d7d15be.ctex"]
 
 [params]
 

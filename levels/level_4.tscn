@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbr4w53yrcb7w"]
+[gd_scene load_steps=21 format=3 uid="uid://bbr4w53yrcb7w"]
 
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_04hp8"]
 [ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_8hlpj"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://mfq231ibycf4" path="res://objects/lamp.tscn" id="9_sc6c1"]
 [ext_resource type="PackedScene" uid="uid://oleqfkd2080p" path="res://objects/balloon.tscn" id="10_52a3b"]
 [ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="11_3ff1r"]
+[ext_resource type="PackedScene" uid="uid://coe1hbqyf1f73" path="res://ui/dialogue_trigger.tscn" id="17_dp2yl"]
 
 [sub_resource type="Animation" id="Animation_0fd8o"]
 length = 0.001
@@ -273,5 +274,11 @@ is_dark = true
 
 [node name="Balloon" parent="Balloons" instance=ExtResource("10_52a3b")]
 position = Vector2(1140, 14)
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="DialogueTrigger" parent="Dialogue" instance=ExtResource("17_dp2yl")]
+position = Vector2(1999, 0)
+dialogue = "It's time to go home..."
 
 [editable path="BaseLevel"]

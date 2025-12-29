@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://7by4pd2n5hhx"]
+
+[ext_resource type="Texture2D" uid="uid://cvv76yi7n5bni" path="res://assets/particles/sparkle6.png" id="1_jpuw2"]
+
+[sub_resource type="Curve" id="Curve_l7csi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2tul6"]
+colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="SwitchMaskParticles" type="CPUParticles2D"]
+z_index = -1
+emitting = false
+amount = 12
+texture = ExtResource("1_jpuw2")
+lifetime = 0.5
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 80.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_l7csi")
+color_ramp = SubResource("Gradient_2tul6")
+anim_offset_max = 1.0

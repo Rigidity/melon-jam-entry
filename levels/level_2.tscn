@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfxlh3ldb6mlb"]
+[gd_scene load_steps=16 format=3 uid="uid://cfxlh3ldb6mlb"]
 
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_mi4ay"]
 [ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_wcjpl"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://o438kp4m8iqr" path="res://levels/level_3.tscn" id="6_hbb88"]
 [ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="6_ilhis"]
 [ext_resource type="PackedScene" uid="uid://bv66na0nfnp58" path="res://objects/building.tscn" id="7_ep78u"]
+[ext_resource type="PackedScene" uid="uid://dcb6y46m0mklr" path="res://objects/mask.tscn" id="8_5orea"]
 [ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="8_dfjjl"]
+[ext_resource type="PackedScene" uid="uid://coe1hbqyf1f73" path="res://ui/dialogue_trigger.tscn" id="15_0ourt"]
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_wcjpl")
@@ -68,6 +70,10 @@ position = Vector2(1683, -84)
 [node name="ExitBuilding" parent="BaseLevel" index="7"]
 position = Vector2(1611, 32)
 next_scene = ExtResource("6_hbb88")
+
+[node name="Mask" parent="." instance=ExtResource("8_5orea")]
+position = Vector2(1611, -101)
+mask = 2
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -129,5 +135,11 @@ position = Vector2(687, 47)
 
 [node name="Paline2" parent="GondolaStation" instance=ExtResource("3_v5uil")]
 position = Vector2(943, 47)
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="DialogueTrigger" parent="Dialogue" instance=ExtResource("15_0ourt")]
+position = Vector2(1310, 0)
+dialogue = "\"This next mask will give you another power that you may need later\""
 
 [editable path="BaseLevel"]
