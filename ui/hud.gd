@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	elif Global.current_mask == Global.Mask.DASH:
 		mask_name = "Dash"
 	elif Global.current_mask == Global.Mask.POISON:
-		mask_name = "Anti-Poison"
+		mask_name = "Plague Doctor"
 	
 	mask.text = "Mask: " + mask_name
 	stamina.text = "Stamina: " + str(Global.stamina)

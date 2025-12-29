@@ -48,4 +48,7 @@ func toggle_mask(index: int) -> void:
 	
 	current_mask = collected_masks[index]
 	
+	if current_mask == Mask.DASH:
+		DialogueBus.request_dialogue("Press Shift to dash!", 5.0)
+	
 	AudioBus.play_sound(SWITCH)
