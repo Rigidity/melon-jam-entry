@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://mfq231ibycf4"]
+
+[ext_resource type="Texture2D" uid="uid://cg7wl2qf870ws" path="res://assets/objects/lamp.png" id="1_1cnde"]
+[ext_resource type="Script" uid="uid://c8bofrmlimq81" path="res://objects/lamp.gd" id="2_l3ivm"]
+
+[sub_resource type="Gradient" id="Gradient_l3ivm"]
+offsets = PackedFloat32Array(0, 0.57843137, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ocsv1"]
+gradient = SubResource("Gradient_l3ivm")
+width = 450
+height = 450
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_l3ivm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+
+[sub_resource type="Animation" id="Animation_1cnde"]
+resource_name = "brighten"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.1, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3ivm"]
+_data = {
+&"RESET": SubResource("Animation_l3ivm"),
+&"brighten": SubResource("Animation_1cnde")
+}
+
+[node name="Lamp" type="Sprite2D"]
+texture = ExtResource("1_1cnde")
+script = ExtResource("2_l3ivm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -16)
+energy = 0.1
+texture = SubResource("GradientTexture2D_ocsv1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l3ivm")
+}

@@ -28,6 +28,9 @@ var _facing_direction := 1.0
 var _dash_timer := 0.0
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("switch_mask"):
+		Global.toggle_mask()
+	
 	if not is_on_floor():
 		if sprite.animation != "dash" or not sprite.is_playing():
 			sprite.play("jump")
@@ -139,8 +142,7 @@ func _reset_jump() -> void:
 	_jump_buffer_timer = 0.0
 
 func _can_double_jump() -> bool:
-	#return Global.current_mask == Global.Mask.FEATHER
-	return true
+	return Global.current_mask == Global.Mask.FEATHER
 
 func _can_dash() -> bool:
-	return true
+	return Global.current_mask == Global.Mask.DASH

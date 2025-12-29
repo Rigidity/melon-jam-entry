@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://o438kp4m8iqr"]
+[gd_scene load_steps=14 format=3 uid="uid://o438kp4m8iqr"]
 
+[ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_q42ux"]
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_wj73x"]
 [ext_resource type="PackedScene" uid="uid://cgfuw5h7tfxgp" path="res://objects/sky.tscn" id="2_0unm6"]
 [ext_resource type="PackedScene" uid="uid://dm1gwfsg37gd0" path="res://objects/big_cloud_left.tscn" id="3_q42ux"]
@@ -14,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="11_eg35p"]
 
 [node name="Level3" type="Node"]
+script = ExtResource("1_q42ux")
+level = 3
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_wj73x")]
 

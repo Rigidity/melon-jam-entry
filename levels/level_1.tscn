@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://rrn0gfnop3e3"]
+[gd_scene load_steps=9 format=3 uid="uid://rrn0gfnop3e3"]
 
+[ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_vn7o3"]
 [ext_resource type="PackedScene" uid="uid://cfxlh3ldb6mlb" path="res://levels/level_2.tscn" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="3_n46q3"]
@@ -9,13 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dcb6y46m0mklr" path="res://objects/mask.tscn" id="11_5ot28"]
 
 [node name="Level1" type="Node"]
+script = ExtResource("1_l53as")
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_vn7o3")]
 
 [node name="Player" parent="BaseLevel" index="0"]
 position = Vector2(-20, 82)
 
-[node name="ExitBuilding" parent="BaseLevel" index="6"]
+[node name="ExitBuilding" parent="BaseLevel" index="7"]
 next_scene = ExtResource("2_gwceb")
 
 [node name="Platforms" type="Node" parent="."]
