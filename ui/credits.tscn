@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://lxnaghmw0kv4"]
+
+[ext_resource type="Script" uid="uid://2p8fjyex13y2" path="res://ui/credits.gd" id="1_74u3g"]
+[ext_resource type="FontFile" uid="uid://d1tjtqeqhj88l" path="res://assets/Pixellari.ttf" id="1_ed0b0"]
+[ext_resource type="PackedScene" uid="uid://dchxpk8mpn3rm" path="res://ui/credit.tscn" id="2_orljq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06xqq"]
+bg_color = Color(1, 0.33380663, 0.3489569, 1)
+
+[node name="Credits" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_06xqq")
+script = ExtResource("1_74u3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.0
+offset_right = 406.0
+offset_bottom = 900.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ed0b0")
+theme_override_font_sizes/font_size = 96
+text = "Credits"
+
+[node name="Credit" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_orljq")]
+layout_mode = 2
+
+[node name="Author" parent="MarginContainer/VBoxContainer/Credit" index="0"]
+text = "Rigidity"
+
+[node name="Credit2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_orljq")]
+layout_mode = 2
+
+[node name="Author" parent="MarginContainer/VBoxContainer/Credit2" index="0"]
+text = "Colin"
+
+[node name="Description" parent="MarginContainer/VBoxContainer/Credit2" index="1"]
+text = "Sound designer"
+
+[node name="Credit3" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_orljq")]
+layout_mode = 2
+
+[node name="Author" parent="MarginContainer/VBoxContainer/Credit3" index="0"]
+text = "RedMoonBlue"
+
+[node name="Description" parent="MarginContainer/VBoxContainer/Credit3" index="1"]
+text = "Writer"
+
+[node name="Credit4" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_orljq")]
+layout_mode = 2
+
+[node name="Author" parent="MarginContainer/VBoxContainer/Credit4" index="0"]
+text = "Froggy"
+
+[node name="Description" parent="MarginContainer/VBoxContainer/Credit4" index="1"]
+text = "Artist"
+
+[node name="Credit5" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_orljq")]
+layout_mode = 2
+
+[node name="Author" parent="MarginContainer/VBoxContainer/Credit5" index="0"]
+text = "Zacchary Dempsey-Plante"
+
+[node name="Description" parent="MarginContainer/VBoxContainer/Credit5" index="1"]
+text = "Pixellari font"
+
+[editable path="MarginContainer/VBoxContainer/Credit"]
+[editable path="MarginContainer/VBoxContainer/Credit2"]
+[editable path="MarginContainer/VBoxContainer/Credit3"]
+[editable path="MarginContainer/VBoxContainer/Credit4"]
+[editable path="MarginContainer/VBoxContainer/Credit5"]

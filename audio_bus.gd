@@ -52,6 +52,20 @@ func play_end_music() -> void:
 	
 	animation_player.play("fade_in")
 
+func play_credits_music() -> void:
+	if not _end_music:
+		return
+	
+	_end_music = false
+	
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+	
+	music.stream = PUZZLE_INTRO
+	music.play()
+	
+	animation_player.play("fade_in")
+
 func _on_music_player_finished() -> void:
 	if not _end_music:
 		music.stream = PUZZLE_LOOP

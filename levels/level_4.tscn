@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbr4w53yrcb7w"]
+[gd_scene load_steps=20 format=3 uid="uid://bbr4w53yrcb7w"]
 
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_04hp8"]
 [ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_8hlpj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdulef4xdntk2" path="res://objects/small_cloud.tscn" id="5_5oqfd"]
 [ext_resource type="PackedScene" uid="uid://bv66na0nfnp58" path="res://objects/building.tscn" id="6_8mt0c"]
 [ext_resource type="Script" uid="uid://d0ji4pycsp4bh" path="res://levels/canvas_modulate.gd" id="7_0fd8o"]
+[ext_resource type="PackedScene" uid="uid://lxnaghmw0kv4" path="res://ui/credits.tscn" id="7_8mt0c"]
 [ext_resource type="PackedScene" uid="uid://c87lvjs6wiiiu" path="res://objects/platform.tscn" id="7_dp2yl"]
 [ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="8_a7qdg"]
 [ext_resource type="PackedScene" uid="uid://cptw47483kf4w" path="res://objects/paline.tscn" id="9_g1ha7"]
@@ -15,6 +16,21 @@
 [ext_resource type="PackedScene" uid="uid://mfq231ibycf4" path="res://objects/lamp.tscn" id="9_sc6c1"]
 [ext_resource type="PackedScene" uid="uid://oleqfkd2080p" path="res://objects/balloon.tscn" id="10_52a3b"]
 [ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="11_3ff1r"]
+
+[sub_resource type="Animation" id="Animation_0fd8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hokjj"]
 resource_name = "night"
@@ -30,21 +46,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.43711978, 0.43712014, 0.4371199, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0fd8o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dmnu2"]
@@ -157,6 +158,7 @@ position = Vector2(2579, -128)
 
 [node name="ExitBuilding" parent="BaseLevel" index="7"]
 position = Vector2(2443, -28)
+next_scene = ExtResource("7_8mt0c")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("7_0fd8o")

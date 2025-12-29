@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dchxpk8mpn3rm"]
+
+[ext_resource type="FontFile" uid="uid://d1tjtqeqhj88l" path="res://assets/Pixellari.ttf" id="1_nw25j"]
+
+[node name="Credit" type="VBoxContainer"]
+
+[node name="Author" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nw25j")
+theme_override_font_sizes/font_size = 64
+text = "Brandon Haggstrom"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8625217, 0.86252177, 0.86252177, 1)
+theme_override_fonts/font = ExtResource("1_nw25j")
+theme_override_font_sizes/font_size = 48
+text = "Developer"
