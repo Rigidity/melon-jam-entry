@@ -30,22 +30,21 @@ func reset_for_level(level: int) -> void:
 		current_mask = Mask.FEATHER
 	elif level == 4:
 		collected_masks = [Mask.FEATHER, Mask.DASH, Mask.POISON]
-		stamina = 100
+		stamina = 8
 		current_mask = Mask.FEATHER
 
-func toggle_mask() -> void:
-	if stamina == 0:
+func toggle_mask(index: int) -> void:
+	if index >= len(collected_masks) or index == collected_masks.find(current_mask):
 		AudioBus.play_sound(FAILED)
+		return
+	
+	if stamina <= 0:
+		AudioBus.play_sound(FAILED)
+		DialogueBus.force_dialogue("I'm out of stamina!", 1.0)
 		return
 	
 	stamina -= 1
 	
-	var index := collected_masks.find(current_mask) + 1
+	current_mask = collected_masks[index]
 	
-	if index >= len(collected_masks):
-		index = 0
-	
-	current_mask = collected_masks[index] if index < len(collected_masks) else Mask.NONE
-	
-	if current_mask != Mask.NONE:
-		AudioBus.play_sound(SWITCH)
+	AudioBus.play_sound(SWITCH)

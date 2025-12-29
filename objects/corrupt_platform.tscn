@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctvkb126xvmxs"]
+
+[ext_resource type="Texture2D" uid="uid://c817ef8ro41ob" path="res://assets/objects/corrupt_platform.png" id="1_qs41n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0vwc"]
+atlas = ExtResource("1_qs41n")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75cdx"]
+atlas = ExtResource("1_qs41n")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_763yo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0vwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75cdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c6sq"]
+size = Vector2(53, 11)
+
+[node name="CorruptPlatform" type="StaticBody2D" groups=["corrupt_platform"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_763yo")
+autoplay = "default"
+frame_progress = 0.6700329
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 2.5)
+shape = SubResource("RectangleShape2D_2c6sq")

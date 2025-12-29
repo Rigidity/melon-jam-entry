@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rrn0gfnop3e3"]
+[gd_scene load_steps=10 format=3 uid="uid://rrn0gfnop3e3"]
 
 [ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_vn7o3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c87lvjs6wiiiu" path="res://objects/platform.tscn" id="4_btoec"]
 [ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="5_gwceb"]
 [ext_resource type="PackedScene" uid="uid://cptw47483kf4w" path="res://objects/paline.tscn" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://coe1hbqyf1f73" path="res://ui/dialogue_trigger.tscn" id="9_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://dcb6y46m0mklr" path="res://objects/mask.tscn" id="11_5ot28"]
 
 [node name="Level1" type="Node"]
@@ -88,5 +89,25 @@ position = Vector2(400, 124)
 [node name="Mask" parent="." instance=ExtResource("11_5ot28")]
 position = Vector2(932, 42)
 mask = 1
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="DialogueTrigger" parent="Dialogue" instance=ExtResource("9_3sk1a")]
+position = Vector2(400, 0)
+dialogue = "You look around for your family, but they already left without you"
+
+[node name="DialogueTrigger2" parent="Dialogue" instance=ExtResource("9_3sk1a")]
+position = Vector2(776, 0)
+dialogue = "What is this?"
+delay = 4.0
+
+[node name="DialogueTrigger3" parent="Dialogue" instance=ExtResource("9_3sk1a")]
+position = Vector2(901, 0)
+dialogue = "\"Hello kitty... It's a mask rooted with ancient power, try to put it on\""
+
+[node name="DialogueTrigger4" parent="Dialogue" instance=ExtResource("9_3sk1a")]
+position = Vector2(956, 0)
+dialogue = "You can now double jump to reach higher"
+delay = 5.0
 
 [editable path="BaseLevel"]

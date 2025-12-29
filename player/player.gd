@@ -17,6 +17,7 @@ extends CharacterBody2D
 
 const JUMP_SOUND = preload("uid://bndwugx0kqlsq")
 const DASH_SOUND = preload("uid://b4bw7hi3mpro4")
+const POISON_DEATH = preload("uid://dmyig6kd427ch")
 
 var _jump_coyote_timer := 0.0
 var _jump_buffer_timer := 0.0
@@ -28,8 +29,12 @@ var _facing_direction := 1.0
 var _dash_timer := 0.0
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("switch_mask"):
-		Global.toggle_mask()
+	if Input.is_action_just_pressed("mask_1"):
+		Global.toggle_mask(0)
+	elif Input.is_action_just_pressed("mask_2"):
+		Global.toggle_mask(1)
+	elif Input.is_action_just_pressed("mask_3"):
+		Global.toggle_mask(2)
 	
 	if not is_on_floor():
 		if sprite.animation != "dash" or not sprite.is_playing():
@@ -47,6 +52,13 @@ func _physics_process(delta: float) -> void:
 	
 	var sit_collider := ray.get_collider()
 	var sitting := false
+	
+	if sit_collider is CollisionObject2D and sit_collider.is_in_group("corrupt_platform") and SceneTransition.is_playing and Global.current_mask != Global.Mask.POISON:
+		AudioBus.play_sound(POISON_DEATH)
+		SceneTransition.reload_scene()
+	
+	if Input.is_action_just_pressed("restart_level"):
+		SceneTransition.reload_scene()
 	
 	if sit_collider is CollisionObject2D and sit_collider.is_in_group("gondola") and direction == 0.0:
 		sprite.play("sit")

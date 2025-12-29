@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var player: AnimationPlayer = $AnimationPlayer
 
+var is_playing := true
+
 func _ready() -> void:
 	player.play("fade_in")
 
@@ -16,10 +18,12 @@ func reload_scene() -> void:
 	await _stop_transition()
 
 func _start_transition() -> void:
+	is_playing = false
 	player.play("fade_out")
 	await player.animation_finished
 
 func _stop_transition() -> void:
 	await get_tree().scene_changed
+	is_playing = true
 	player.play("fade_in")
 	await player.animation_finished

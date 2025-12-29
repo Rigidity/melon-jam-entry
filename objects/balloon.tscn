@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://oleqfkd2080p"]
 
 [ext_resource type="Script" uid="uid://bcyj2krahjf2n" path="res://objects/balloon.gd" id="1_3sv87"]
-[ext_resource type="Texture2D" uid="uid://6lswrqxovnu7" path="res://assets/objects/balloon_placeholder.png" id="1_n8xhk"]
+[ext_resource type="Texture2D" uid="uid://cvjxjy4fwa5h2" path="res://assets/objects/balloon1.png" id="2_3sv87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sv87"]
-size = Vector2(16, 16)
+size = Vector2(19, 16)
 
 [node name="Balloon" type="AnimatableBody2D"]
 script = ExtResource("1_3sv87")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n8xhk")
+position = Vector2(0, 11)
+texture = ExtResource("2_3sv87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(-0.5, -5)
 shape = SubResource("RectangleShape2D_3sv87")
