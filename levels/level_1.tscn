@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rrn0gfnop3e3"]
+[gd_scene load_steps=11 format=3 uid="uid://rrn0gfnop3e3"]
 
 [ext_resource type="Script" uid="uid://5o30uckfkb7q" path="res://levels/level.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_vn7o3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="5_gwceb"]
 [ext_resource type="PackedScene" uid="uid://cptw47483kf4w" path="res://objects/paline.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://coe1hbqyf1f73" path="res://ui/dialogue_trigger.tscn" id="9_3sk1a"]
+[ext_resource type="Texture2D" uid="uid://dedvmm7kyu2c8" path="res://assets/objects/double_jump_mask.png" id="9_08mmt"]
 [ext_resource type="PackedScene" uid="uid://dcb6y46m0mklr" path="res://objects/mask.tscn" id="11_5ot28"]
 
 [node name="Level1" type="Node"]
@@ -90,6 +91,9 @@ position = Vector2(400, 124)
 position = Vector2(927, 42)
 mask = 1
 
+[node name="Sprite2D" parent="Mask" index="0"]
+texture = ExtResource("9_08mmt")
+
 [node name="Dialogue" type="Node" parent="."]
 
 [node name="DialogueTrigger" parent="Dialogue" instance=ExtResource("9_3sk1a")]
@@ -106,3 +110,4 @@ position = Vector2(901, 0)
 dialogue = "\"Hello kitty... It's a mask rooted with ancient power, try to put it on\""
 
 [editable path="BaseLevel"]
+[editable path="Mask"]

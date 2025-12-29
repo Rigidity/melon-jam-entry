@@ -143,3 +143,4 @@ position = Vector2(1310, 0)
 dialogue = "\"This next mask will give you another power that you may need later\""
 
 [editable path="BaseLevel"]
+[editable path="Mask"]
