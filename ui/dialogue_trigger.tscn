@@ -6,6 +6,7 @@
 normal = Vector2(-1, 0)
 
 [node name="DialogueTrigger" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_xvshc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
