@@ -3,6 +3,7 @@ extends Node
 @export var pool_size := 20
 
 @onready var music: AudioStreamPlayer = $MusicPlayer
+@onready var animation_player: AnimationPlayer = $MusicPlayer/AnimationPlayer
 
 var _audio_streams: Array[AudioStreamPlayer] = []
 var _end_music := false
@@ -42,9 +43,14 @@ func play_end_music() -> void:
 		return
 	
 	_end_music = true
+	
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+	
 	music.stream = FIGHT_INTRO
 	music.play()
-	pass
+	
+	animation_player.play("fade_in")
 
 func _on_music_player_finished() -> void:
 	if not _end_music:

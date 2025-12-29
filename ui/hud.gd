@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	
 	mask.text = "Mask: " + mask_name
 	stamina.text = "Stamina: " + str(Global.stamina)
+	stamina.visible = Global.stamina > 0
 	
 	_update_dialogue(delta)
 

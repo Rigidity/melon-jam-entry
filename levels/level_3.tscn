@@ -21,7 +21,7 @@ level = 3
 [node name="BaseLevel" parent="." instance=ExtResource("1_wj73x")]
 
 [node name="Player" parent="BaseLevel" index="0"]
-position = Vector2(-20, 83)
+position = Vector2(-19, 83)
 
 [node name="Camera" parent="BaseLevel/Player" index="4"]
 limit_top = -225

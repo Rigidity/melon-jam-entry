@@ -22,7 +22,7 @@ func reset_for_level(level: int) -> void:
 		current_mask = Mask.NONE
 	elif level == 2:
 		collected_masks = [Mask.FEATHER]
-		stamina = 100
+		stamina = 0
 		current_mask = Mask.FEATHER
 	elif level == 3:
 		collected_masks = [Mask.FEATHER, Mask.DASH]
