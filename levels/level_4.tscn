@@ -1,0 +1,189 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbr4w53yrcb7w"]
+
+[ext_resource type="PackedScene" uid="uid://d0tcvb83qb3vv" path="res://levels/base_level.tscn" id="1_04hp8"]
+[ext_resource type="PackedScene" uid="uid://cgfuw5h7tfxgp" path="res://objects/sky.tscn" id="2_8hlpj"]
+[ext_resource type="PackedScene" uid="uid://dm1gwfsg37gd0" path="res://objects/big_cloud_left.tscn" id="3_qhnv2"]
+[ext_resource type="PackedScene" uid="uid://b6h153fbakk38" path="res://objects/big_cloud_right.tscn" id="4_vru0x"]
+[ext_resource type="PackedScene" uid="uid://cdulef4xdntk2" path="res://objects/small_cloud.tscn" id="5_5oqfd"]
+[ext_resource type="PackedScene" uid="uid://bv66na0nfnp58" path="res://objects/building.tscn" id="6_8mt0c"]
+[ext_resource type="PackedScene" uid="uid://c87lvjs6wiiiu" path="res://objects/platform.tscn" id="7_dp2yl"]
+[ext_resource type="PackedScene" uid="uid://e5eyp4qvl1lf" path="res://objects/flower.tscn" id="8_a7qdg"]
+[ext_resource type="PackedScene" uid="uid://cptw47483kf4w" path="res://objects/paline.tscn" id="9_g1ha7"]
+[ext_resource type="PackedScene" uid="uid://oleqfkd2080p" path="res://objects/balloon.tscn" id="10_52a3b"]
+[ext_resource type="PackedScene" uid="uid://cq2hqr5qeebxf" path="res://objects/gondola.tscn" id="11_3ff1r"]
+
+[node name="Level4" type="Node"]
+
+[node name="BaseLevel" parent="." instance=ExtResource("1_04hp8")]
+
+[node name="Player" parent="BaseLevel" index="0"]
+position = Vector2(-20, 83)
+
+[node name="Camera" parent="BaseLevel/Player" index="4"]
+limit_top = -225
+limit_right = 2572
+limit_bottom = 161
+
+[node name="DeathZoneTop" parent="BaseLevel" index="3"]
+position = Vector2(0, -238)
+
+[node name="Skies" parent="BaseLevel" index="4"]
+position = Vector2(0, -42)
+
+[node name="Sky6" parent="BaseLevel/Skies" index="5" instance=ExtResource("2_8hlpj")]
+position = Vector2(1357, 28)
+metadata/_edit_group_ = true
+
+[node name="Sky7" parent="BaseLevel/Skies" index="6" instance=ExtResource("2_8hlpj")]
+position = Vector2(1627, 28)
+metadata/_edit_group_ = true
+
+[node name="Sky8" parent="BaseLevel/Skies" index="7" instance=ExtResource("2_8hlpj")]
+position = Vector2(1897, 28)
+metadata/_edit_group_ = true
+
+[node name="Sky9" parent="BaseLevel/Skies" index="8" instance=ExtResource("2_8hlpj")]
+position = Vector2(2167, 28)
+metadata/_edit_group_ = true
+
+[node name="Sky10" parent="BaseLevel/Skies" index="9" instance=ExtResource("2_8hlpj")]
+position = Vector2(2437, 28)
+metadata/_edit_group_ = true
+
+[node name="BigCloudLeft7" parent="BaseLevel/Clouds" index="6" instance=ExtResource("3_qhnv2")]
+position = Vector2(1482, -88)
+
+[node name="BigCloudLeft8" parent="BaseLevel/Clouds" index="7" instance=ExtResource("3_qhnv2")]
+position = Vector2(1610, -112)
+
+[node name="BigCloudLeft9" parent="BaseLevel/Clouds" index="8" instance=ExtResource("3_qhnv2")]
+position = Vector2(1746, -96)
+
+[node name="BigCloudLeft10" parent="BaseLevel/Clouds" index="9" instance=ExtResource("3_qhnv2")]
+position = Vector2(2082, -112)
+
+[node name="BigCloudLeft11" parent="BaseLevel/Clouds" index="10" instance=ExtResource("3_qhnv2")]
+position = Vector2(2298, -144)
+
+[node name="BigCloudRight7" parent="BaseLevel/Clouds" index="16" instance=ExtResource("4_vru0x")]
+position = Vector2(1880, -99)
+
+[node name="BigCloudRight8" parent="BaseLevel/Clouds" index="17" instance=ExtResource("4_vru0x")]
+position = Vector2(2248, -93)
+
+[node name="BigCloudRight9" parent="BaseLevel/Clouds" index="18" instance=ExtResource("4_vru0x")]
+position = Vector2(2568, -93)
+
+[node name="BigCloudRight6" parent="BaseLevel/Clouds" index="19" instance=ExtResource("4_vru0x")]
+position = Vector2(1400, -99)
+
+[node name="SmallCloud12" parent="BaseLevel/Clouds" index="29" instance=ExtResource("5_5oqfd")]
+position = Vector2(1331, -100)
+
+[node name="SmallCloud13" parent="BaseLevel/Clouds" index="30" instance=ExtResource("5_5oqfd")]
+position = Vector2(1523, -100)
+
+[node name="SmallCloud14" parent="BaseLevel/Clouds" index="31" instance=ExtResource("5_5oqfd")]
+position = Vector2(1683, -84)
+
+[node name="SmallCloud15" parent="BaseLevel/Clouds" index="32" instance=ExtResource("5_5oqfd")]
+position = Vector2(1819, -116)
+
+[node name="SmallCloud16" parent="BaseLevel/Clouds" index="33" instance=ExtResource("5_5oqfd")]
+position = Vector2(1971, -112)
+
+[node name="SmallCloud17" parent="BaseLevel/Clouds" index="34" instance=ExtResource("5_5oqfd")]
+position = Vector2(2035, -136)
+
+[node name="SmallCloud18" parent="BaseLevel/Clouds" index="35" instance=ExtResource("5_5oqfd")]
+position = Vector2(2179, -120)
+
+[node name="SmallCloud19" parent="BaseLevel/Clouds" index="36" instance=ExtResource("5_5oqfd")]
+position = Vector2(2371, -112)
+
+[node name="SmallCloud20" parent="BaseLevel/Clouds" index="37" instance=ExtResource("5_5oqfd")]
+position = Vector2(2459, -136)
+
+[node name="SmallCloud21" parent="BaseLevel/Clouds" index="38" instance=ExtResource("5_5oqfd")]
+position = Vector2(2579, -128)
+
+[node name="ExitBuilding" parent="BaseLevel" index="7"]
+position = Vector2(2459, -4)
+
+[node name="Building" parent="." instance=ExtResource("6_8mt0c")]
+position = Vector2(1388, 54)
+
+[node name="Building2" parent="." instance=ExtResource("6_8mt0c")]
+position = Vector2(1676, 54)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(2461, 73)
+
+[node name="Flower" parent="Platforms/Platform" instance=ExtResource("8_a7qdg")]
+position = Vector2(-25, -11)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(-20, 101)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(139, -6)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(329, -6)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(1105, -141)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(1244, -109)
+
+[node name="Paline" parent="Platforms" instance=ExtResource("9_g1ha7")]
+position = Vector2(1813, 21)
+
+[node name="Paline2" parent="Platforms" instance=ExtResource("9_g1ha7")]
+position = Vector2(1957, 21)
+
+[node name="Paline3" parent="Platforms" instance=ExtResource("9_g1ha7")]
+position = Vector2(2101, 21)
+
+[node name="Paline4" parent="Platforms" instance=ExtResource("9_g1ha7")]
+position = Vector2(2245, 21)
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("7_dp2yl")]
+position = Vector2(2336, 41)
+
+[node name="Balloons" type="Node" parent="."]
+
+[node name="Balloon" parent="Balloons" instance=ExtResource("10_52a3b")]
+position = Vector2(-112, 82)
+
+[node name="Balloon2" parent="Balloons" instance=ExtResource("10_52a3b")]
+position = Vector2(1105, 44)
+
+[node name="Balloon3" parent="Balloons" instance=ExtResource("10_52a3b")]
+position = Vector2(1030, -60)
+
+[node name="GondolaStation" type="Node2D" parent="."]
+position = Vector2(-233, 7)
+
+[node name="Gondola" parent="GondolaStation" instance=ExtResource("11_3ff1r")]
+position = Vector2(760, 48)
+
+[node name="Paline" parent="GondolaStation" instance=ExtResource("9_g1ha7")]
+position = Vector2(687, 47)
+
+[node name="Paline2" parent="GondolaStation" instance=ExtResource("9_g1ha7")]
+position = Vector2(975, 47)
+
+[node name="GondolaStation2" type="Node2D" parent="."]
+position = Vector2(55, 7)
+
+[node name="Gondola" parent="GondolaStation2" instance=ExtResource("11_3ff1r")]
+position = Vector2(760, 48)
+
+[node name="Paline2" parent="GondolaStation2" instance=ExtResource("9_g1ha7")]
+position = Vector2(975, 47)
+
+[editable path="BaseLevel"]

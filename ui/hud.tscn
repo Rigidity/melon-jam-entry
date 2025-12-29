@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tsrw7mivnymj" path="res://ui/hud.gd" id="1_rbyyf"]
 
 [node name="HUD" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_rbyyf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

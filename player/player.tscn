@@ -173,7 +173,7 @@ collision_mask = 3
 script = ExtResource("1_oul6g")
 speed = 70.0
 jump_velocity = 175.0
-dash_velocity = 225.0
+dash_velocity = 260.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

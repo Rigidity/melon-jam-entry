@@ -13,4 +13,4 @@ func _physics_process(delta: float) -> void:
 		ray.target_position.x *= -1.0
 		sprite.flip_h = not sprite.flip_h
 	
-	position.x += direction * delta * 25
+	position.x += direction * delta * 32

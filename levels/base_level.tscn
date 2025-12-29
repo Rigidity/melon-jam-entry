@@ -1,15 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0tcvb83qb3vv"]
+[gd_scene load_steps=14 format=3 uid="uid://d0tcvb83qb3vv"]
 
 [ext_resource type="PackedScene" uid="uid://i30vdlunl6il" path="res://player/player.tscn" id="3_maq6b"]
 [ext_resource type="PackedScene" uid="uid://yksc06hwa85g" path="res://player/camera.tscn" id="4_0rg8l"]
+[ext_resource type="Script" uid="uid://bvkhagyinnnkd" path="res://objects/death_zone.gd" id="4_n8wy4"]
 [ext_resource type="PackedScene" uid="uid://bruyhdeixwxvx" path="res://ui/hud.tscn" id="5_6w4ab"]
 [ext_resource type="PackedScene" uid="uid://cgfuw5h7tfxgp" path="res://objects/sky.tscn" id="5_46036"]
-[ext_resource type="PackedScene" uid="uid://bxc1ce6yh0bfq" path="res://objects/death_zone.tscn" id="5_p5284"]
 [ext_resource type="PackedScene" uid="uid://dm1gwfsg37gd0" path="res://objects/big_cloud_left.tscn" id="6_0rg8l"]
 [ext_resource type="PackedScene" uid="uid://b6h153fbakk38" path="res://objects/big_cloud_right.tscn" id="7_6w4ab"]
 [ext_resource type="PackedScene" uid="uid://cdulef4xdntk2" path="res://objects/small_cloud.tscn" id="8_n8wy4"]
 [ext_resource type="PackedScene" uid="uid://bv66na0nfnp58" path="res://objects/building.tscn" id="9_6w4ab"]
 [ext_resource type="Script" uid="uid://b2gpj0frkfros" path="res://objects/building.gd" id="10_n8wy4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0perq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n8wy4"]
+normal = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w4ab"]
 size = Vector2(27, 39)
@@ -26,10 +31,23 @@ limit_bottom = 160
 
 [node name="HUD" parent="." instance=ExtResource("5_6w4ab")]
 
-[node name="DeathZone" parent="." instance=ExtResource("5_p5284")]
+[node name="DeathZoneBottom" type="Area2D" parent="."]
 position = Vector2(0, 142)
+collision_layer = 0
+script = ExtResource("4_n8wy4")
 
-[node name="Skies" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneBottom"]
+shape = SubResource("WorldBoundaryShape2D_0perq")
+
+[node name="DeathZoneTop" type="Area2D" parent="."]
+position = Vector2(0, -116)
+collision_layer = 0
+script = ExtResource("4_n8wy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneTop"]
+shape = SubResource("WorldBoundaryShape2D_n8wy4")
+
+[node name="Skies" type="Node2D" parent="."]
 
 [node name="Sky" parent="Skies" instance=ExtResource("5_46036")]
 position = Vector2(7, 28)
@@ -137,4 +155,6 @@ script = ExtResource("10_n8wy4")
 position = Vector2(2.5, 44.5)
 shape = SubResource("RectangleShape2D_6w4ab")
 
+[connection signal="body_entered" from="DeathZoneBottom" to="DeathZoneBottom" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathZoneTop" to="DeathZoneTop" method="_on_body_entered"]
 [connection signal="body_entered" from="ExitBuilding/Exit" to="ExitBuilding" method="_on_exit_body_entered"]

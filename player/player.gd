@@ -119,6 +119,16 @@ func _physics_process(delta: float) -> void:
 		
 		if len(collision_area.get_overlapping_bodies()) == 0:
 			set_collision_mask_value(2, true)
+		
+		for i in range(get_slide_collision_count()):
+			var collision := get_slide_collision(i)
+			var collider := collision.get_collider()
+			
+			if collider is Balloon:
+				collider.activated = true
+				
+				if sprite.animation != "sit":
+					sprite.play("sit")
 
 func _queue_jump() -> void:
 	_jump_queued = true
@@ -129,7 +139,8 @@ func _reset_jump() -> void:
 	_jump_buffer_timer = 0.0
 
 func _can_double_jump() -> bool:
-	return Global.current_mask == Global.Mask.FEATHER
+	#return Global.current_mask == Global.Mask.FEATHER
+	return true
 
 func _can_dash() -> bool:
-	return false
+	return true
